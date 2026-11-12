@@ -94,7 +94,14 @@ API 文档参考：https://rickandmortyapi.com/documentation
 
 ### 截图
 
-（可选，可贴图片链接或说明）
+APP运行截图
+
+<img width="300" alt="搜索" src="https://github.com/user-attachments/assets/06ddafc0-8d22-43d0-899f-94e0bc542d18" />
+<img width="300" alt="错误页" src="https://github.com/user-attachments/assets/617bb981-21b6-4687-b76b-af66687fd3ec" />
+<img width="300" alt="加载页" src="https://github.com/user-attachments/assets/ad1bef72-6dcc-459a-bbc0-b1dec5b72dbc" />
+<img width="300" alt="详情页" src="https://github.com/user-attachments/assets/bc0c0b6f-9bcd-4460-ba69-dd211ddc61c3" />
+<img width="300" alt="主页面" src="https://github.com/user-attachments/assets/4600087b-ca55-432f-b011-fad91a52ff51" />
+
 
 ---
 
