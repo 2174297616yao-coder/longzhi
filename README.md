@@ -1,4 +1,4 @@
-姓名：（请在此填写你的真实姓名）
+姓名：姚童
 
 # Android 作业 - 网络请求 & RecyclerView
 
@@ -69,15 +69,28 @@ API 文档参考：https://rickandmortyapi.com/documentation
 
 ### 开发过程
 
-（请在此描述你的实现思路）
+1. 首先阅读 API 文档，使用 Retrofit + Gson 搭建了网络请求层，定义了数据模型和接口。
+2. 实现了基础的 RecyclerView + Adapter 列表展示，使用 Glide 加载角色头像。
+3. 对不同 status（Alive/Dead/unknown）分别设置了绿色、红色、橙色的胶囊标签进行区分。
+4. **加分项实现**：
+    * 增加了首屏 Loading 状态和加载失败的 Toast / 错误重试界面。
+    * 引入 **ViewModel + StateFlow** 架构，实现了数据与 UI 的分离。
+    * 实现了**分页加载**（滑动到底部自动加载下一页，底部显示"正在加载"或"到底啦"提示）。
+    * 实现了**点击进入详情页**，使用 Intent 传递 ID，展示角色头像、性别、起源地、出场集数等信息。
+    * 实现了**顶部搜索功能**，带有 500ms 防抖，并处理了搜索无结果（404）的状态。
+    * UI 采用 Material 组件美化（CardView 圆角卡片、圆形头像、NestedScrollView 滑动）。
 
 ### 遇到的问题 & 解决方案
 
-（请在此描述）
+1. **环境兼容性**：由于本地 AS 版本较老，而模板默认使用了最新的 AGP 9.x，导致 Gradle Sync 失败。通过降级 AGP、Gradle 和 compileSdk (至 34) 解决。
+2. **Kotlin 插件缺失**：运行初期出现 `ClassNotFoundException` 闪退，排查发现未引入 Kotlin 插件，在 build.gradle 中补充后解决。
+3. **Material 组件主题崩溃**：在使用 `Chip` 和 `TextInputLayout` 时出现了 `InflateException`。由于全局主题适配问题，最终采用原生 `TextView` 和 `EditText` 配合 Material 背景和卡片，既保留了美观又彻底解决了兼容性闪退。
 
 ### 架构说明
 
-（请在此描述，如 ViewModel、Repository 等）
+* **Model**：`Character` 数据类，`RickAndMortyApi` 接口负责网络请求。
+* **ViewModel**：`CharacterViewModel` 负责管理状态、分页逻辑和搜索防抖。
+* **View**：`MainActivity` 和 `DetailActivity` 监听 ViewModel 的 `StateFlow`，实现 UI = f(State) 的数据驱动渲染。
 
 ### 截图
 
